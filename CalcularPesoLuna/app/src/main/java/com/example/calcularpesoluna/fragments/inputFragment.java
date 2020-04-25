@@ -13,11 +13,12 @@ import androidx.navigation.NavDirections;
 import androidx.navigation.fragment.NavHostFragment;
 
 import com.example.calcularpesoluna.R;
-import com.google.android.material.textfield.TextInputLayout;
+import com.google.android.material.textfield.TextInputEditText;
 
 
 public class inputFragment extends Fragment {
     private Button pesoButton;
+    private TextInputEditText Peso;
 
     @Nullable
     @Override
@@ -28,11 +29,12 @@ public class inputFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        pesoButton = view.findViewById(R.id.pesoButton);
+        pesoButton = view.findViewById(R.id.calcularButton);
+        Peso = view.findViewById(R.id.pesoInputText);
         pesoButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                NavDirections action = inputFragmentDirections.actionInputFragmentToDisplayFragment("30");
+                NavDirections action = inputFragmentDirections.actionInputFragmentToDisplayFragment(Peso.getText().toString());
                 NavHostFragment.findNavController(inputFragment.this).navigate(action);
             }
         });

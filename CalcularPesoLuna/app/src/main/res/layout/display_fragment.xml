@@ -7,7 +7,7 @@
     android:layout_height="match_parent">
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/displayPeso"
+        android:id="@+id/displayPesoLayout"
         android:layout_width="409dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="1dp"
@@ -21,6 +21,7 @@
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:id="@+id/pesoText"
             android:hint="@string/pesoluna" />
     </com.google.android.material.textfield.TextInputLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

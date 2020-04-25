@@ -20,13 +20,13 @@ public class displayFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return super.onCreateView(inflater, container, savedInstanceState);
+        return inflater.inflate(R.layout.display_fragment,container,false);
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        pesoTextView = view.findViewById(R.id.displayPeso);
+        pesoTextView = view.findViewById(R.id.pesoText);
         pesoTierra = Double.valueOf(displayFragmentArgs.fromBundle(getArguments()).getPeso());
         total = (pesoTierra/9.81)*1.622;
         pesoTextView.setText(String.valueOf(total));
