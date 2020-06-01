@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">PokeAppPro</string>
+    <string name="ContentImageLogin">Login Image</string>
+    <string name="TrainerHint">Trainer</string>
+    <string name="TextGender">Gender</string>
+    <string name="radiobuttonMale">Male</string>
+    <string name="radiobuttonFemale">Female</string>
+    <string name="buttonEnter">Enter</string>
+    <string name="textview">TextView</string>
+</resources>
