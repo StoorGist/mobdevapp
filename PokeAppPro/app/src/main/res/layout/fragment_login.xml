@@ -7,7 +7,7 @@
     android:layout_height="match_parent">
 
     <ImageView
-        android:id="@+id/ImageLoginId"
+        android:id="@+id/imageLoginId"
         android:layout_width="130dp"
         android:layout_height="211dp"
         android:layout_marginStart="8dp"
@@ -20,7 +20,7 @@
         app:srcCompat='@drawable/ic_account_box_black_24dp' />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayout"
+        android:id="@+id/textinputTrainer"
         android:layout_width="409dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -28,7 +28,7 @@
         android:layout_marginEnd="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ImageLoginId"
+        app:layout_constraintTop_toBottomOf="@+id/imageLoginId"
         android:hint="@string/TrainerHint">
 
         <com.google.android.material.textfield.TextInputEditText
@@ -42,17 +42,18 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="43dp"
         android:text="@string/TextGender"
-        app:layout_constraintEnd_toEndOf="@+id/textInputLayout"
-        app:layout_constraintStart_toStartOf="@+id/textInputLayout"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout" />
+        app:layout_constraintEnd_toEndOf="@+id/textinputTrainer"
+        app:layout_constraintStart_toStartOf="@+id/textinputTrainer"
+        app:layout_constraintTop_toBottomOf="@+id/textinputTrainer" />
 
     <RadioGroup
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toTopOf="@+id/loginButton"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/textView"
         app:layout_constraintStart_toStartOf="@+id/textView"
-        app:layout_constraintTop_toBottomOf="@+id/textView" >
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintVertical_bias="0.18">
 
         <RadioButton
             android:id="@+id/radioButtonMale"

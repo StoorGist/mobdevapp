@@ -20,5 +20,14 @@
         android:id="@+id/tabFragment"
         android:name="com.example.pokeapppro.fragments.TabFragment"
         android:label="TabFragment"
-        tools:layout="@layout/fragment_tab"/>
+        tools:layout="@layout/fragment_tab">
+        <action
+            android:id="@+id/action_tabFragment_to_detailFragment"
+            app:destination="@id/detailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailFragment"
+        android:name="com.example.pokeapppro.fragments.DetailFragment"
+        android:label="DetailFragment"
+        tools:layout="@layout/fragment_detail"/>
 </navigation>

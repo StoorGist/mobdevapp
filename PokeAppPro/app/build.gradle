@@ -44,9 +44,14 @@ dependencies {
     implementation "com.google.android.material:material:1.2.0-beta01"
     implementation "com.squareup.retrofit2:retrofit:2.7.2"
     implementation "com.squareup.retrofit2:converter-gson:2.7.2"
+
     //View Model implementation
     implementation 'androidx.lifecycle:lifecycle-livedata:2.2.0'
     implementation 'androidx.lifecycle:lifecycle-viewmodel:2.2.0'
+
     //Picasso implementation
     implementation 'com.squareup.picasso:picasso:2.71828'
+
+    //Recyclerview implementation
+    implementation 'androidx.recyclerview:recyclerview:1.0.0'
 }
