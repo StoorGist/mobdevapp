@@ -6,13 +6,11 @@
     <string name="radiobuttonMale">Male</string>
     <string name="radiobuttonFemale">Female</string>
     <string name="buttonEnter">Enter</string>
-    <string name="textview">TextView</string>
     <string name="pokemonnamedetail">PokemonName</string>
     <string name="ImageDetail">TODO</string>
     <string name="textviewDetailDetail">TextView</string>
     <string name="favoritesResource">Favorites</string>
     <string name="RecentResource">Recents</string>
-    <string name="favorite_star_image">Favorite Star Image</string>
     <string name="string_favorite_star_image" />
     <string name="pokemonimage">PokemonImage</string>
     <string name="selectAllResource">Select All</string>

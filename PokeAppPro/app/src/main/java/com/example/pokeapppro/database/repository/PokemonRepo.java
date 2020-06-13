@@ -20,12 +20,7 @@ public class PokemonRepo {
 
     public void InsertPokemon(PokemonDB pokemon){
         if (pokemon != null && pokemonDAO != null){
-            PokemonRoomDataBase.appDatabaseWriteExecutor.execute(new Runnable() {
-                @Override
-                public void run() {
-                    pokemonDAO.Insert(pokemon);
-                }
-            });
+            PokemonRoomDataBase.appDatabaseWriteExecutor.execute(() -> pokemonDAO.Insert(pokemon));
         }
     }
 
