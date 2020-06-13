@@ -6,30 +6,34 @@ public class Pokemon {
 
     @SerializedName("name")
     private String pokemonName;
-    private String imageURL;
+    private String pokemonImageURL;
     private String pokemonId;
     @SerializedName("url")
     private String pokemonURL;
     private Boolean pokemonFavorite;
+    private Boolean pokemonRecent;
 
-    public Pokemon(String pokemonName, String imageURL, String pokemonId, String pokemonURL, Boolean pokemonFavorite) {
+    public Pokemon(String pokemonName, String pokemonImageURL, String pokemonId, String pokemonURL, Boolean pokemonFavorite, Boolean pokemonRecent) {
         this.pokemonName = pokemonName;
-        this.imageURL = imageURL;
+        this.pokemonImageURL = pokemonImageURL;
         this.pokemonId = pokemonId;
         this.pokemonURL = pokemonURL;
         this.pokemonFavorite = pokemonFavorite;
+        this.pokemonRecent = pokemonRecent;
     }
 
     public String getPokemonName() {
-        return pokemonName.substring(0, 1).toUpperCase() + pokemonName.substring(1);
+        String str = pokemonName;
+        str = String.format("%s%s", str.substring(0, 1).toUpperCase(), str.substring(1));
+        return str;
     }
 
-    public String getImageURL() {
-        return imageURL;
+    public String getPokemonImageURL() {
+        return pokemonImageURL;
     }
 
-    public void setImageURL(String imageURL) {
-        this.imageURL = imageURL;
+    public void setPokemonImageURL(String pokemonImageURL) {
+        this.pokemonImageURL = pokemonImageURL;
     }
 
     public String getPokemonId() {
@@ -44,12 +48,18 @@ public class Pokemon {
         return pokemonURL;
     }
 
-    public Boolean getFavorite() {
+    public Boolean getPokemonFavorite() {
         return pokemonFavorite;
     }
-
-    public void setFavorite(Boolean favorite) {
+    public void setPokemonFavorite(Boolean favorite) {
         pokemonFavorite = favorite;
+    }
+
+    public Boolean getPokemonRecent() {
+        return pokemonRecent;
+    }
+    public void setPokemonRecent(Boolean favorite) {
+        pokemonRecent = favorite;
     }
 
 }

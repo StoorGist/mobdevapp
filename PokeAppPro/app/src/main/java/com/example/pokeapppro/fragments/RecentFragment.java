@@ -8,7 +8,6 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavDirections;
 import androidx.navigation.fragment.NavHostFragment;
@@ -18,22 +17,41 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.pokeapppro.R;
 import com.example.pokeapppro.adapters.PokemonAdapter;
+import com.example.pokeapppro.database.entity.PokemonDB;
 import com.example.pokeapppro.listener.OnPokemonListClicked;
 import com.example.pokeapppro.models.Pokemon;
 import com.example.pokeapppro.viewmodel.PokemonDBViewModel;
 import com.example.pokeapppro.viewmodel.PokemonViewModel;
 
-public class SelectAllFragment extends Fragment implements OnPokemonListClicked {
+import java.util.ArrayList;
+import java.util.List;
+
+public class RecentFragment extends Fragment implements OnPokemonListClicked {
 
     private RecyclerView recyclerView;
     private PokemonAdapter pokemonAdapter = new PokemonAdapter(this);
-    private PokemonViewModel pokemonViewModel;
     private PokemonDBViewModel dbViewModel;
+
+    private List<Pokemon> ConvertPokemonList(List<PokemonDB> pokemonDbList){
+        List<Pokemon> newPokemonList = new ArrayList<>();
+
+        if (pokemonDbList != null && pokemonDbList.size() > 0){
+            for (int i = 0; i < pokemonDbList.size(); i++){
+                newPokemonList.add(new Pokemon(
+                        pokemonDbList.get(i).getPokemonName(),
+                        pokemonDbList.get(i).getPokemonImageURL(),
+                        pokemonDbList.get(i).getPokemonId(),
+                        pokemonDbList.get(i).getPokemonURL(),
+                        pokemonDbList.get(i).getPokemonFavorite(),
+                        pokemonDbList.get(i).getPokemonRecent()));
+            }
+        }
+        return newPokemonList;
+    }
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        pokemonViewModel = new ViewModelProvider(this).get(PokemonViewModel.class);
         dbViewModel = new ViewModelProvider(this).get(PokemonDBViewModel.class);
     }
 
@@ -52,25 +70,18 @@ public class SelectAllFragment extends Fragment implements OnPokemonListClicked 
         recyclerView.setLayoutManager(new LinearLayoutManager(requireContext()));
         recyclerView.addItemDecoration(new DividerItemDecoration(requireContext(), DividerItemDecoration.VERTICAL));
 
-        pokemonViewModel.getPokemonListServer();
-        pokemonViewModel.getPokemonListAll().observe(this.getViewLifecycleOwner(), pokemons -> pokemonAdapter.setPokemonList(pokemons));
-
+        dbViewModel.GetRecentPokemonList().observe(getViewLifecycleOwner(), pokemonDB -> pokemonAdapter.setPokemonList(ConvertPokemonList(pokemonDB)));
     }
 
     @Override
     public void onClicked(Pokemon pokemon) {
         NavDirections action = TabFragmentDirections.actionTabFragmentToDetailFragment(pokemon.getPokemonId(), pokemon.getPokemonImageURL(), pokemon.getPokemonName());
-        NavHostFragment.findNavController(SelectAllFragment.this).navigate(action);
-        dbViewModel.InsertPokemon(pokemon.getPokemonName(),pokemon.getPokemonImageURL(),pokemon.getPokemonId(), pokemon.getPokemonURL(), pokemon.getPokemonFavorite(),true);
+        NavHostFragment.findNavController(this).navigate(action);
+        dbViewModel.InsertPokemon(pokemon.getPokemonName(),pokemon.getPokemonImageURL(),pokemon.getPokemonId(), pokemon.getPokemonURL(),pokemon.getPokemonFavorite(),true);
     }
 
     @Override
     public void onFavoriteClick(Pokemon pokemon) {
-        if (pokemon.getPokemonFavorite().equals(true)){
-            pokemon.setPokemonFavorite(false);
-        }
-        else pokemon.setPokemonFavorite(true);
 
-        dbViewModel.InsertPokemon(pokemon.getPokemonName(),pokemon.getPokemonImageURL(),pokemon.getPokemonId(), pokemon.getPokemonURL(), pokemon.getPokemonFavorite(),pokemon.getPokemonRecent());
     }
 }

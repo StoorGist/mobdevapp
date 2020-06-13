@@ -64,7 +64,7 @@ public class LoginFragment extends Fragment {
             }
         }
 
-        loginButton.setOnClickListener(v -> {
+            loginButton.setOnClickListener(v -> {
 
             if (Objects.requireNonNull(trainerTextInputLayout.getEditText()).getText() != null)
                 initialSharedPreferences.setTrainerName(trainerTextInputLayout.getEditText().getText().toString());

@@ -29,9 +29,12 @@ public class TabFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
         tabLayout = view.findViewById(R.id.tab);
+
         viewPager = view.findViewById(R.id.viewPagerTab);
         viewPager.setAdapter(new PokemonTabAdapter(this));
+
         new TabLayoutMediator(tabLayout,
                 viewPager,
                 (tab, position) -> {

@@ -10,15 +10,12 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.pokeapppro.R;
-import com.example.pokeapppro.models.PokemonTypeDetail;
 import com.example.pokeapppro.viewmodel.PokemonViewModel;
 import com.squareup.picasso.Picasso;
 
-import java.util.List;
 
 public class DetailFragment extends Fragment {
 
@@ -51,12 +48,13 @@ public class DetailFragment extends Fragment {
         Picasso.get().load(DetailFragmentArgs.fromBundle(getArguments()).getPokemonImageURL()).into(imageViewPokemon);
         String pokemonId = DetailFragmentArgs.fromBundle(getArguments()).getPokemonId();
 
-        detailViewModel.getPokemonTypeList(pokemonId);
+        detailViewModel.getPokemonTypeListServer(pokemonId);
         detailViewModel.getTypeList().observe(this.getViewLifecycleOwner(), pokemonTypeDetails -> {
             String pokemonTypeList = pokemonTypeDetails.get(0).getType().getTypeName();
             String pokemonTypes = "";
             textViewDetail.setText(pokemonTypeList);
         });
-
     }
+
+
 }
