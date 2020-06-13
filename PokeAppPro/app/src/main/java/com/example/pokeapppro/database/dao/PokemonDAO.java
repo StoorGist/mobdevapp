@@ -14,9 +14,6 @@ public interface PokemonDAO {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     void Insert(PokemonDB pokemon);
 
-    @Query("Select * From pokemon Where pokemonId = :pokeId")
-    PokemonDB FindById(String pokeId);
-
     @Query("Select * From pokemon Where pokemonFavorite = 1")
     LiveData<List<PokemonDB>> getFavoritePokemonList();
 

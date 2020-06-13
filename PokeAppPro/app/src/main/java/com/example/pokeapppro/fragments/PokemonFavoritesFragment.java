@@ -35,18 +35,11 @@ public class PokemonFavoritesFragment extends Fragment implements OnPokemonListC
     private PokemonAdapter pokemonAdapter = new PokemonAdapter(this);
     private PokemonDBViewModel dbViewModel;
 
-    private List<Pokemon> ConvertPokemonList(List<PokemonDB> pokemonDbList) {
+    private List<Pokemon> ConvertPokemonList(List<PokemonDB> pokemonDB) {
         List<Pokemon> newPokemonList = new ArrayList<>();
-
-        if (pokemonDbList != null && pokemonDbList.size() > 0) {
-            for (int i = 0; i < pokemonDbList.size(); i++) {
-                newPokemonList.add(new Pokemon(
-                        pokemonDbList.get(i).getPokemonName(),
-                        pokemonDbList.get(i).getPokemonImageURL(),
-                        pokemonDbList.get(i).getPokemonId(),
-                        pokemonDbList.get(i).getPokemonURL(),
-                        pokemonDbList.get(i).getPokemonFavorite(),
-                        pokemonDbList.get(i).getPokemonRecent()));
+        if (pokemonDB != null && pokemonDB.size() > 0) {
+            for (int i = 0; i < pokemonDB.size(); i++) {
+                newPokemonList.add(new Pokemon(pokemonDB.get(i).getPokemonName(), pokemonDB.get(i).getPokemonImageURL(), pokemonDB.get(i).getPokemonId(), pokemonDB.get(i).getPokemonURL(), pokemonDB.get(i).getPokemonFavorite(), pokemonDB.get(i).getPokemonRecent()));
             }
         }
         return newPokemonList;
@@ -79,6 +72,7 @@ public class PokemonFavoritesFragment extends Fragment implements OnPokemonListC
     public void onClicked(Pokemon pokemon) {
         NavDirections action = PokemonTabFragmentDirections.actionTabFragmentToDetailFragment(pokemon.getPokemonId(), pokemon.getPokemonImageURL(), pokemon.getPokemonName());
         NavHostFragment.findNavController(this).navigate(action);
+        dbViewModel.InsertPokemon(pokemon.getPokemonName(), pokemon.getPokemonImageURL(), pokemon.getPokemonId(), pokemon.getPokemonURL(), pokemon.getPokemonFavorite(), true);
     }
 
     @Override
