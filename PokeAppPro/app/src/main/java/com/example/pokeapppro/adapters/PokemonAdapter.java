@@ -67,6 +67,7 @@ public class PokemonAdapter extends RecyclerView.Adapter<PokemonAdapter.PokemonL
             String str = pokemon.getPokemonName();
             str = String.format("%s%s", str.substring(0, 1).toUpperCase(), str.substring(1));
             nameTextView.setText(str);
+
             if (pokemon.getPokemonURL().equals("") || pokemon.getPokemonImageURL() == null) {
                 String[] pokemonURL = pokemon.getPokemonURL().split("/");
                 int partID = (pokemonURL.length - 1);
@@ -74,10 +75,15 @@ public class PokemonAdapter extends RecyclerView.Adapter<PokemonAdapter.PokemonL
                 pokemon.setPokemonId(pokemonId);
             }
             pokemon.setPokemonFavorite(false);
+
             pokemon.setPokemonRecent(false);
+
             pokemon.setPokemonImageURL("https://pokeres.bastionbot.org/images/pokemon/" + pokemon.getPokemonId() + ".png");
+
             Picasso.get().load(pokemon.getPokemonImageURL()).into(pokemonImage);
+
             itemView.setOnClickListener(v -> listener.onClicked(pokemon));
+
             favoriteImageView.setOnClickListener(v -> listener.onFavoriteClick(pokemon));
         }
     }

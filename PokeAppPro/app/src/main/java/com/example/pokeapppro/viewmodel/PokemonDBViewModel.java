@@ -5,7 +5,6 @@ import android.app.Application;
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
-import androidx.room.ColumnInfo;
 
 import com.example.pokeapppro.database.Repository.PokemonRepo;
 import com.example.pokeapppro.database.entity.PokemonDB;
@@ -13,8 +12,8 @@ import com.example.pokeapppro.database.entity.PokemonDB;
 import java.util.List;
 
 public class PokemonDBViewModel extends AndroidViewModel {
-    private static final String QUERY_KEY = "QUERY";
     private PokemonRepo repository;
+
     public PokemonDBViewModel (@NonNull Application application){
         super(application);
         repository = new PokemonRepo(application.getApplicationContext());

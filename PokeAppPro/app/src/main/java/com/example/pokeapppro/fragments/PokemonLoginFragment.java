@@ -14,13 +14,13 @@ import androidx.navigation.NavDirections;
 import androidx.navigation.fragment.NavHostFragment;
 
 import com.example.pokeapppro.R;
-import com.example.pokeapppro.sharepreferences.InitialSharedPreferences;
+import com.example.pokeapppro.sharepreferences.PokeAppSharedPreferences;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 
 import java.util.Objects;
 
-public class LoginFragment extends Fragment {
+public class PokemonLoginFragment extends Fragment {
 
     private Button loginButton;
     private TextInputLayout trainerTextInputLayout;
@@ -44,11 +44,11 @@ public class LoginFragment extends Fragment {
         rbMale = view.findViewById(R.id.radioButtonMale);
         rbFemale = view.findViewById(R.id.radioButtonFemale);
 
-        InitialSharedPreferences initialSharedPreferences = new InitialSharedPreferences(requireContext());
+        PokeAppSharedPreferences pokeAppSharedPreferences = new PokeAppSharedPreferences(requireContext());
         String trainerName;
-        String gender = initialSharedPreferences.getGender();
+        String gender = pokeAppSharedPreferences.getGender();
 
-        trainerName = initialSharedPreferences.getTrainerName();
+        trainerName = pokeAppSharedPreferences.getTrainerName();
 
         if (trainerName != null) {
             trainerTextInputEditText.setText(trainerName);
@@ -66,18 +66,18 @@ public class LoginFragment extends Fragment {
 
             loginButton.setOnClickListener(v -> {
 
-            if (Objects.requireNonNull(trainerTextInputLayout.getEditText()).getText() != null)
-                initialSharedPreferences.setTrainerName(trainerTextInputLayout.getEditText().getText().toString());
+                if (Objects.requireNonNull(trainerTextInputLayout.getEditText()).getText() != null)
+                    pokeAppSharedPreferences.setTrainerName(trainerTextInputLayout.getEditText().getText().toString());
 
-            if (rbMale.isChecked()) {
-                initialSharedPreferences.setGender("Male");
-            } else {
-                initialSharedPreferences.setGender("Female");
-            }
+                if (rbMale.isChecked()) {
+                    pokeAppSharedPreferences.setGender("Male");
+                } else {
+                    pokeAppSharedPreferences.setGender("Female");
+                }
 
-            NavDirections action = LoginFragmentDirections.actionLoginFragmentToTabFragment();
-            NavHostFragment.findNavController(LoginFragment.this).navigate(action);
-        });
+                NavDirections action = PokemonLoginFragmentDirections.actionLoginFragmentToTabFragment();
+                NavHostFragment.findNavController(PokemonLoginFragment.this).navigate(action);
+            });
 
 
     }

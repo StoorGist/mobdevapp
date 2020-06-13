@@ -17,7 +17,7 @@ import com.example.pokeapppro.viewmodel.PokemonViewModel;
 import com.squareup.picasso.Picasso;
 
 
-public class DetailFragment extends Fragment {
+public class PokemonDetailFragment extends Fragment {
 
     private ImageView imageViewPokemon;
     private TextView textViewDetailName;
@@ -44,9 +44,9 @@ public class DetailFragment extends Fragment {
         textViewDetailName = view.findViewById(R.id.textViewDetailName);
         textViewDetail = view.findViewById(R.id.textViewDetail);
 
-        textViewDetailName.setText(DetailFragmentArgs.fromBundle(getArguments()).getPokemonName());
-        Picasso.get().load(DetailFragmentArgs.fromBundle(getArguments()).getPokemonImageURL()).into(imageViewPokemon);
-        String pokemonId = DetailFragmentArgs.fromBundle(getArguments()).getPokemonId();
+        textViewDetailName.setText(PokemonDetailFragmentArgs.fromBundle(getArguments()).getPokemonName());
+        Picasso.get().load(PokemonDetailFragmentArgs.fromBundle(getArguments()).getPokemonImageURL()).into(imageViewPokemon);
+        String pokemonId = PokemonDetailFragmentArgs.fromBundle(getArguments()).getPokemonId();
 
         detailViewModel.getPokemonTypeListServer(pokemonId);
         detailViewModel.getTypeList().observe(this.getViewLifecycleOwner(), pokemonTypeDetails -> {

@@ -15,7 +15,9 @@ public class PokemonType {
     }
 
     public String getTypeName() {
-        return typeName;
+        String str = typeName;
+        str = String.format("%s%s", str.substring(0, 1).toUpperCase(), str.substring(1));
+        return str;
     }
 
     public String getTypeUrl() {

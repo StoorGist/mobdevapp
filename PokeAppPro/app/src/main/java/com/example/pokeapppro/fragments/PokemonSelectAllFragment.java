@@ -23,7 +23,7 @@ import com.example.pokeapppro.models.Pokemon;
 import com.example.pokeapppro.viewmodel.PokemonDBViewModel;
 import com.example.pokeapppro.viewmodel.PokemonViewModel;
 
-public class SelectAllFragment extends Fragment implements OnPokemonListClicked {
+public class PokemonSelectAllFragment extends Fragment implements OnPokemonListClicked {
 
     private RecyclerView recyclerView;
     private PokemonAdapter pokemonAdapter = new PokemonAdapter(this);
@@ -59,18 +59,13 @@ public class SelectAllFragment extends Fragment implements OnPokemonListClicked 
 
     @Override
     public void onClicked(Pokemon pokemon) {
-        NavDirections action = TabFragmentDirections.actionTabFragmentToDetailFragment(pokemon.getPokemonId(), pokemon.getPokemonImageURL(), pokemon.getPokemonName());
-        NavHostFragment.findNavController(SelectAllFragment.this).navigate(action);
-        dbViewModel.InsertPokemon(pokemon.getPokemonName(),pokemon.getPokemonImageURL(),pokemon.getPokemonId(), pokemon.getPokemonURL(), pokemon.getPokemonFavorite(),true);
+        NavDirections action = PokemonTabFragmentDirections.actionTabFragmentToDetailFragment(pokemon.getPokemonId(), pokemon.getPokemonImageURL(), pokemon.getPokemonName());
+        NavHostFragment.findNavController(PokemonSelectAllFragment.this).navigate(action);
+        dbViewModel.InsertPokemon(pokemon.getPokemonName(), pokemon.getPokemonImageURL(), pokemon.getPokemonId(), pokemon.getPokemonURL(), pokemon.getPokemonFavorite(), true);
     }
 
     @Override
     public void onFavoriteClick(Pokemon pokemon) {
-        if (pokemon.getPokemonFavorite().equals(true)){
-            pokemon.setPokemonFavorite(false);
-        }
-        else pokemon.setPokemonFavorite(true);
-
-        dbViewModel.InsertPokemon(pokemon.getPokemonName(),pokemon.getPokemonImageURL(),pokemon.getPokemonId(), pokemon.getPokemonURL(), pokemon.getPokemonFavorite(),pokemon.getPokemonRecent());
+        dbViewModel.InsertPokemon(pokemon.getPokemonName(), pokemon.getPokemonImageURL(), pokemon.getPokemonId(), pokemon.getPokemonURL(), true, pokemon.getPokemonRecent());
     }
 }

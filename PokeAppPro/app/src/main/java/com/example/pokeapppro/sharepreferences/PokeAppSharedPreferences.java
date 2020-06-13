@@ -5,11 +5,11 @@ import android.content.SharedPreferences;
 
 import com.example.pokeapppro.R;
 
-public class InitialSharedPreferences {
+public class PokeAppSharedPreferences {
     SharedPreferences sharedpreferences;
 
     //GET CONTEXT PREFERENCES
-    public InitialSharedPreferences(Context context) {
+    public PokeAppSharedPreferences(Context context) {
         sharedpreferences = context.getSharedPreferences(context.getString(R.string.preference_file_key), Context.MODE_PRIVATE);
     }
 

@@ -4,9 +4,9 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 
-import com.example.pokeapppro.fragments.SelectAllFragment;
-import com.example.pokeapppro.fragments.FavoritesFragment;
-import com.example.pokeapppro.fragments.RecentFragment;
+import com.example.pokeapppro.fragments.PokemonSelectAllFragment;
+import com.example.pokeapppro.fragments.PokemonFavoritesFragment;
+import com.example.pokeapppro.fragments.PokemonRecentFragment;
 
 public class PokemonTabAdapter extends FragmentStateAdapter {
 
@@ -18,10 +18,14 @@ public class PokemonTabAdapter extends FragmentStateAdapter {
     @Override
     public Fragment createFragment(int position) {
         switch (position) {
-            case 0: return new FavoritesFragment();
-            case 1: return new RecentFragment();
-            case 2: return new SelectAllFragment();
-            default: return null;
+            case 0:
+                return new PokemonFavoritesFragment();
+            case 1:
+                return new PokemonRecentFragment();
+            case 2:
+                return new PokemonSelectAllFragment();
+            default:
+                return null;
         }
     }
 

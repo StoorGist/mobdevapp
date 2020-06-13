@@ -15,7 +15,7 @@ import com.example.pokeapppro.adapters.PokemonTabAdapter;
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
 
-public class TabFragment extends Fragment {
+public class PokemonTabFragment extends Fragment {
 
     TabLayout tabLayout;
     ViewPager2 viewPager;
@@ -23,7 +23,7 @@ public class TabFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_tab ,container,false);
+        return inflater.inflate(R.layout.fragment_tab, container, false);
     }
 
     @Override
