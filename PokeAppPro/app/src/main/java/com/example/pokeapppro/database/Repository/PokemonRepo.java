@@ -23,15 +23,6 @@ public class PokemonRepo {
             PokemonRoomDataBase.appDatabaseWriteExecutor.execute(new Runnable() {
                 @Override
                 public void run() {
-                    //Boolean favorite = true;
-                    //PokemonDB pokemonDb = pokemonDAO.FindById(pokemon.getPokemonId());
-                    //if (pokemonDb != null){
-                    //    favorite = pokemonDAO.FindById(pokemon.getPokemonId()).getPokemonFavorite();
-                    //}
-
-                    if (pokemon.getPokemonFavorite().equals(false)){
-                        pokemon.setPokemonFavorite(true);}
-
                     pokemonDAO.Insert(pokemon);
                 }
             });

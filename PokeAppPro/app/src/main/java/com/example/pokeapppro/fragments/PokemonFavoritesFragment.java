@@ -79,7 +79,6 @@ public class PokemonFavoritesFragment extends Fragment implements OnPokemonListC
     public void onClicked(Pokemon pokemon) {
         NavDirections action = PokemonTabFragmentDirections.actionTabFragmentToDetailFragment(pokemon.getPokemonId(), pokemon.getPokemonImageURL(), pokemon.getPokemonName());
         NavHostFragment.findNavController(this).navigate(action);
-        //dbViewModel.InsertPokemon(pokemon.getPokemonName(),pokemon.getPokemonImageURL(),pokemon.getPokemonId(), pokemon.getPokemonURL(), true,true);
     }
 
     @Override
