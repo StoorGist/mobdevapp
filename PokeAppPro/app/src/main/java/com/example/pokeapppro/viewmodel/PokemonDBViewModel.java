@@ -6,7 +6,7 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 
-import com.example.pokeapppro.database.Repository.PokemonRepo;
+import com.example.pokeapppro.database.repository.PokemonRepo;
 import com.example.pokeapppro.database.entity.PokemonDB;
 
 import java.util.List;

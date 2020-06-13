@@ -1,4 +1,4 @@
-package com.example.pokeapppro.database.Repository;
+package com.example.pokeapppro.database.repository;
 
 import android.content.Context;
 
