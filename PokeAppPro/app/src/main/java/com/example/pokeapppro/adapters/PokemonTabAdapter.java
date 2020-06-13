@@ -7,9 +7,9 @@ import androidx.viewpager2.adapter.FragmentStateAdapter;
 import com.example.pokeapppro.fragments.SelectAllFragment;
 import com.example.pokeapppro.fragments.fragmento1;
 import com.example.pokeapppro.fragments.fragmento2;
-import com.example.pokeapppro.fragments.fragmento3;
 
 public class PokemonTabAdapter extends FragmentStateAdapter {
+
     public PokemonTabAdapter(@NonNull Fragment fragment) {
         super(fragment);
     }
@@ -20,7 +20,7 @@ public class PokemonTabAdapter extends FragmentStateAdapter {
         switch (position) {
             case 0: return new fragmento1();
             case 1: return new fragmento2();
-            case 2: return new fragmento3();
+            case 2: return new SelectAllFragment();
             default: return null;
         }
     }

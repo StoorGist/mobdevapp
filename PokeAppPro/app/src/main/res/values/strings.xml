@@ -11,11 +11,12 @@
     <string name="ImageDetail">TODO</string>
     <string name="textviewDetailDetail">TextView</string>
     <string name="favoritesResource">Favorites</string>
-    <string name="RecentsResource">Recents</string>
+    <string name="RecentResource">Recents</string>
     <string name="favorite_star_image">Favorite Star Image</string>
     <string name="string_favorite_star_image" />
     <string name="pokemonimage">PokemonImage</string>
     <string name="selectAllResource">Select All</string>
     <string name="pokemon_name">Select All</string>
+    <string name="preference_file_key">com.example.pokeapppro.PREFERENCE_FILE_KEY</string>
 
 </resources>

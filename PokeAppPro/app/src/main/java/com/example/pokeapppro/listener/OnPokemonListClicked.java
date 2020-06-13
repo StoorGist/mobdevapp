@@ -1,7 +1,9 @@
 package com.example.pokeapppro.listener;
 
-import com.example.pokeapppro.models.PokemonList;
+import com.example.pokeapppro.models.Pokemon;
 
 public interface OnPokemonListClicked {
-    void onClicked(PokemonList pokemonList);
+    void onClicked(Pokemon pokemon);
+
+    void onFavoriteClick(Pokemon pokemon);
 }

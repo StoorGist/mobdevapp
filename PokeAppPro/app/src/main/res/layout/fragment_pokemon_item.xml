@@ -7,11 +7,18 @@
 
     <ImageView
         android:id="@+id/imageViewListPokemon"
-        android:layout_width="54dp"
-        android:layout_height="53dp"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
         android:layout_marginStart="2dp"
+        android:layout_marginLeft="2dp"
         android:layout_marginTop="2dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginRight="10dp"
         android:contentDescription="@string/pokemonimage"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/favoriteImageView"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:srcCompat="@tools:sample/avatars" />
@@ -19,24 +26,33 @@
     <TextView
         android:id="@+id/textViewListName"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:gravity="center_vertical"
         android:hint="@string/pokemon_name"
+        android:orientation="horizontal"
+        android:textColor="#0B0A0A"
+        android:textSize="18sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/imageViewListPokemon"
         app:layout_constraintEnd_toStartOf="@+id/favoriteImageView"
-        app:layout_constraintHorizontal_bias="0.52"
         app:layout_constraintStart_toEndOf="@+id/imageViewListPokemon"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@+id/imageViewListPokemon" />
 
     <ImageView
         android:id="@+id/favoriteImageView"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
         android:contentDescription="@string/string_favorite_star_image"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/textViewListName"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/textViewListName"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textViewListName"
         app:srcCompat="@android:drawable/btn_star" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
